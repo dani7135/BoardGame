@@ -14,24 +14,23 @@ interface WeatherForecast {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public forecasts: WeatherForecast[] = [];
+  gameId: number = 13;
+  boardGame: any;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.getForecasts();
+    this.loadGame();
+    console.log(this.boardGame, "ngOnInit");
   }
 
-  getForecasts() {
-    this.http.get<WeatherForecast[]>('/weatherforecast').subscribe(
-      (result) => {
-        this.forecasts = result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+  loadGame() {
+    this.http.get(`/api/BoardGames/${this.gameId}`)
+      .subscribe(
+        data => {
+          console.log(data, "loadGame");
+          this.boardGame = data;
+        }
+      )
   }
-
-  title = 'boardgame.client';
 }

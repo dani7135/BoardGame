@@ -1,24 +1,11 @@
-﻿<h1 id="tableLabel">Weather forecast</h1>
+<div>
+  <h1> Board Game Data</h1>
+  <input [(ngModel)]="gameId" placeholder="Enter Game ID" type="number" />
 
-<p>This component demonstrates fetching data from the server.</p>
+  <button (click)="loadGame()">Load Game</button>
+  <div *ngIf="boardGame">
+    <p><strong>Name: </strong> {{boardGame.name}}</p>
+    <p><strong>Year Published:</strong>{{boardGame.yearPublished}}</p>
+  </div>
 
-<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
-
-<table *ngIf="forecasts">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.date }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
-    </tbody>
-</table>
+</div>
