@@ -4,8 +4,10 @@
 
   <button (click)="loadGame()">Load Game</button>
   <div *ngIf="boardGame">
-    <p><strong>Name: </strong> {{boardGame.name}}</p>
-    <p><strong>Year Published:</strong>{{boardGame.yearPublished}}</p>
+    <p><strong>Name: </strong> test {{boardGame.name}}</p>
+    <p><strong>Year Published:</strong>{{boardGame.year}}</p>
+    <li *ngFor="let y of yearList">{{ y }}</li>
+
   </div>
 
 </div>

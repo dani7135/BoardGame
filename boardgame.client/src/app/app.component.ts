@@ -1,12 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
+
 
 @Component({
   selector: 'app-root',
@@ -14,8 +9,9 @@ interface WeatherForecast {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  gameId: number = 13;
+  gameId: number = 1;
   boardGame: any;
+  yearList: number[] = [];
 
   constructor(private http: HttpClient) {}
 
